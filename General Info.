@@ -1,0 +1,28 @@
+This is a general Information Share List.
+*******************************************
+1. Find the muChameleon device on Linux
+Before do anything, first open a terminal and type the command:
+$ ls /dev
+
+Then connect the muChameleon device to the USB port. When the LED begins to flash, the device should be connected. If the LED light is not flashing (either always on or always off), please check the connection.
+
+In the termial, type the following codes:
+$ ls /dev
+You will find a new device is connected to the computer. Usually the the device is recongnized as 'ttyACM#' (some people also reported that it could be recognized as 'ttyUSB#').If there is only one device connnect, then it should be 'ttyACM0'.
+
+Assuming the device is recognized as 'ttyACM0', try the following commands in the terminal to talk to the device:
+$ echo 'led off' > /dev/ttyACM0
+$ echo 'led on' > /dev/ttyACM0
+
+Open a new terminal, type the following commands and keep an eye on it:
+$ cat /dev/ttyACM0
+In another terminal, type:
+$ echo 'id' > /dev/ttyACM0
+In the monitoring termial, there should display something like 'id ?chameleon'.
+
+
+
+
+
+TAGS: #USB #Linux #terminal
+
